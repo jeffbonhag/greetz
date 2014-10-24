@@ -1,10 +1,14 @@
 DEPLOY = ~/Desktop/out
 
-debug:
+debug: deps
 	xbuild
 
-release:
+release: deps
 	xbuild /p:Configuration=Release
+
+deps:
+	wget -nc http://nuget.org/nuget.exe
+	mono nuget.exe restore Greetz.sln
 
 clean:
 	rm -fr Greetz/bin ./Greetz/obj
