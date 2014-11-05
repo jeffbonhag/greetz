@@ -7,6 +7,7 @@ release: deps
 	xbuild /p:Configuration=Release
 
 deps:
+	mozroots --import --sync
 	wget -nc http://nuget.org/nuget.exe
 	mono nuget.exe restore Greetz.sln
 
